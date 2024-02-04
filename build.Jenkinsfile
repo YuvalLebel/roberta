@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Login to Docker registry
-                    sh 'docker login yuval1911/yuval-docker-repo'
+                    sh 'docker login -u yuval1911 -p Colt1911a1'
                     
                     // Build Docker image
                     sh 'docker build -f /home/yuval1911/PycharmProjects/roberta/Dockerfile -t yuval1911/yuval-docker-repo:roberta .'
