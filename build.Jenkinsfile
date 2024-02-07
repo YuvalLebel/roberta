@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY_URL = 'https://hub.docker.com/repository/docker/yuval1911/yuval-docker-repo'
-        DOCKER_REGISTRY_CREDENTIALS = '1a5229c1-38f5-450c-97f5-e455295eeb84'
+
+        DOCKER_REGISTRY_PASSWORD = '1a5229c1-38f5-450c-97f5-e455295eeb84'
         DOCKER_REGISTRY_USERNAME = 'yuval1911'
     }
 
@@ -12,9 +12,13 @@ pipeline {
             steps {
                 script {
                     // Your Docker registry credentials
-                    def registryCredentials = 'yuvallebel'
+                    withCredentials([usernameColonPassword(credentialsId: 'Dockercreds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                        sh '''
+                             docker login -u $USERNAME -p $PASSWORD
+                        '''
+                    }
                     // Log in to Docker Hub using withCredentials
-                    sh "docker login -u ${env.DOCKER_REGISTRY_USERNAME} -p ${env.DOCKER_REGISTRY_PASSWORD} ${env.DOCKER_REGISTRY_URL}"
+
                     
                     // Build Docker image
                     sh 'docker build -f /home/yuval1911/PycharmProjects/roberta/Dockerfile -t yuval1911/yuval-docker-repo:roberta .'
