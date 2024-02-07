@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_REGISTRY_URL = 'https://hub.docker.com/repository/docker/yuval1911/yuval-docker-repo'
         DOCKER_REGISTRY_CREDENTIALS = '1a5229c1-38f5-450c-97f5-e455295eeb84'
+        DOCKER_REGISTRY_USERNAME = 'yuval1911'
     }
 
     stages {
