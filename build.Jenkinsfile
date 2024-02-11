@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY_PASSWORD = '1a5229c1-38f5-450c-97f5-e455295eeb84'
-        DOCKER_REGISTRY_USERNAME = 'yuval1911'
+
     }
 
     stages {
