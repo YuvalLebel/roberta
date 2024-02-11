@@ -19,7 +19,8 @@ pipeline {
                     // Log in to Docker Hub using withCredentials
 
                     // Build Docker image
-                    sh 'docker build -f /home/yuval1911/PycharmProjects/roberta/Dockerfile -t yuval1911/yuval-docker-repo:roberta .'
+                    sh 'docker build -f /home/yuval1911/PycharmProjects/roberta/Dockerfile -t yuval1911/yuval-docker-repo:roberta .
+
                     
                     // Tag Docker image
                     sh 'docker tag yuval1911/yuval-docker-repo:roberta yuval1911/yuval-docker-repo:custom-tag'
